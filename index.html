@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Alumnos</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
+</head>
+<body>
+  <header>
+    <h1>Registro de Alumnos</h1>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Agregar / Editar Alumno</h2>
+      <form id="alumnoForm">
+        <input type="text" id="no_boleta" placeholder="No. Boleta" required>
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="ap" placeholder="Apellido Paterno" required>
+        <input type="text" id="am" placeholder="Apellido Materno" required>
+        <input type="number" id="edad" placeholder="Edad" required min="1">
+        <input type="text" id="carrera" placeholder="Carrera" required>
+        <button type="submit" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnCancelar" class="cancelar" hidden>Cancelar</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h2>Lista de Alumnos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>No. Boleta</th>
+            <th>Nombre</th>
+            <th>Ap. Paterno</th>
+            <th>Ap. Materno</th>
+            <th>Edad</th>
+            <th>Carrera</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAlumnos"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/serviceWorker.js')
+        .then(() => console.log('[SW] Registrado correctamente'))
+        .catch((err) => console.error('[SW] Error al registrar:', err));
+    });
+  }
+</script>
+
+</body>
+</html>
